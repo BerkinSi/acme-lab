@@ -2,5 +2,5 @@
   "buildCommand": "cd ../.. && pnpm install && pnpm build --filter tus-quiz",
   "installCommand": "cd ../.. && pnpm install",
   "framework": "nextjs",
-  "outputDirectory": "apps/tus-quiz/.next"
+  "outputDirectory": ".next"
 } 
