@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Button, Input, Card, CardHeader, CardTitle, CardContent } from '@acme/ui';
 import { useUser } from '@acme/auth-core';
 
-export default function SignupPage() {
+export default function SignUpPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ export default function SignupPage() {
     } else {
       setSuccess(true);
       setTimeout(() => {
-        router.push('/login');
+        router.push('/signin');
       }, 2000);
     }
     
@@ -47,7 +47,7 @@ export default function SignupPage() {
                 Account created successfully! Please check your email to verify your account.
               </p>
               <p className="text-sm text-gray-600">
-                Redirecting to login page...
+                Redirecting to sign in page...
               </p>
             </div>
           ) : (
@@ -98,7 +98,7 @@ export default function SignupPage() {
           <div className="mt-4 text-center">
             <p className="text-sm text-gray-600">
               Already have an account?{' '}
-              <Link href="/login" className="text-primary-600 hover:text-primary-700">
+              <Link href="/signin" className="text-primary-600 hover:text-primary-700">
                 Sign in
               </Link>
             </p>

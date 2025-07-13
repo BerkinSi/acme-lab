@@ -20,7 +20,7 @@ export default function HomePage() {
                 Start Quiz
               </Button>
             </Link>
-            <Link href="/login">
+            <Link href="/signin">
               <Button variant="outline" size="lg" className="text-lg px-8 py-4">
                 Sign In
               </Button>

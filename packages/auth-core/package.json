@@ -6,6 +6,7 @@
   "types": "./src/index.ts",
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
+    "@acme/supabase-client": "workspace:*",
     "react": "^18.0.0"
   },
   "devDependencies": {
