@@ -38,23 +38,23 @@ export default function SignUpPage() {
     <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-center text-2xl">Sign Up</CardTitle>
+          <CardTitle className="text-center text-2xl">Kayıt Ol</CardTitle>
         </CardHeader>
         <CardContent>
           {success ? (
             <div className="text-center">
               <p className="text-green-600 mb-4">
-                Account created successfully! Please check your email to verify your account.
+                Hesabınız başarıyla oluşturuldu! Lütfen e-posta adresinizi kontrol edin.
               </p>
               <p className="text-sm text-gray-600">
-                Redirecting to sign in page...
+                Giriş sayfasına yönlendiriliyorsunuz...
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email
+                  E-posta
                 </label>
                 <Input
                   id="email"
@@ -62,13 +62,13 @@ export default function SignUpPage() {
                   value={email}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                   required
-                  placeholder="Enter your email"
+                  placeholder="E-posta adresinizi girin"
                 />
               </div>
               
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-                  Password
+                  Şifre
                 </label>
                 <Input
                   id="password"
@@ -76,7 +76,7 @@ export default function SignUpPage() {
                   value={password}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                   required
-                  placeholder="Enter your password"
+                  placeholder="Şifrenizi girin"
                   minLength={6}
                 />
               </div>
@@ -90,16 +90,16 @@ export default function SignUpPage() {
                 className="w-full"
                 disabled={loading}
               >
-                {loading ? 'Creating account...' : 'Sign Up'}
+                {loading ? 'Hesap oluşturuluyor...' : 'Kayıt Ol'}
               </Button>
             </form>
           )}
           
           <div className="mt-4 text-center">
             <p className="text-sm text-gray-600">
-              Already have an account?{' '}
+              Zaten hesabınız var mı?{' '}
               <Link href="/signin" className="text-primary-600 hover:text-primary-700">
-                Sign in
+                Giriş yapın
               </Link>
             </p>
           </div>

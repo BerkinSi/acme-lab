@@ -34,13 +34,13 @@ export default function SignInPage() {
     <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-center text-2xl">Sign In</CardTitle>
+          <CardTitle className="text-center text-2xl">Giriş Yap</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email
+                E-posta
               </label>
               <Input
                 id="email"
@@ -48,13 +48,13 @@ export default function SignInPage() {
                 value={email}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                 required
-                placeholder="Enter your email"
+                placeholder="E-posta adresinizi girin"
               />
             </div>
             
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-                Password
+                Şifre
               </label>
               <Input
                 id="password"
@@ -62,7 +62,7 @@ export default function SignInPage() {
                 value={password}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                 required
-                placeholder="Enter your password"
+                placeholder="Şifrenizi girin"
               />
             </div>
             
@@ -75,15 +75,15 @@ export default function SignInPage() {
               className="w-full"
               disabled={loading}
             >
-              {loading ? 'Signing in...' : 'Sign In'}
+              {loading ? 'Giriş yapılıyor...' : 'Giriş Yap'}
             </Button>
           </form>
           
           <div className="mt-4 text-center">
             <p className="text-sm text-gray-600">
-              Don't have an account?{' '}
+              Hesabınız yok mu?{' '}
               <Link href="/signup" className="text-primary-600 hover:text-primary-700">
-                Sign up
+                Kayıt olun
               </Link>
             </p>
           </div>

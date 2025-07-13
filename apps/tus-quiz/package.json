@@ -14,7 +14,8 @@
     "react-dom": "^18.0.0",
     "@acme/ui": "workspace:*",
     "@acme/auth-core": "workspace:*",
-    "@acme/supabase-client": "workspace:*"
+    "@acme/supabase-client": "workspace:*",
+    "@acme/quiz-core": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

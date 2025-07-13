@@ -1,13 +1,16 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@acme/auth-core';
-import { Button } from '@acme/ui';
+import { Button, Card, CardHeader, CardTitle, CardContent } from '@acme/ui';
+import { SUBJECTS, QUIZ_MODES, QuizService } from '@acme/quiz-core';
 
 export default function QuizPage() {
   const { user, loading } = useUser();
   const router = useRouter();
+  const [selectedSubject, setSelectedSubject] = useState<string>('');
+  const [selectedMode, setSelectedMode] = useState<string>('');
 
   useEffect(() => {
     if (!loading && !user) {
@@ -15,12 +18,22 @@ export default function QuizPage() {
     }
   }, [user, loading, router]);
 
+  const handleStartQuiz = async () => {
+    if (!user || !selectedSubject || !selectedMode) return;
+    
+    const quiz = await QuizService.createQuiz(user.id, selectedSubject, selectedMode);
+    if (quiz) {
+      // Navigate to the actual quiz taking page
+      router.push(`/quiz/take/${quiz.id}`);
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-gray-600">Yükleniyor...</p>
         </div>
       </div>
     );
@@ -35,23 +48,68 @@ export default function QuizPage() {
       <div className="max-w-4xl mx-auto">
         <div className="bg-white rounded-lg shadow-lg p-8">
           <h1 className="text-3xl font-bold text-primary-900 mb-6">
-            TUS Quiz - Protected Page
+            Quiz Oluştur
           </h1>
           
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-            <p className="text-green-800">
-              ✅ You are successfully authenticated as: <strong>{user.email}</strong>
-            </p>
-          </div>
-          
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-gray-800">Quiz Features Coming Soon:</h2>
-            <ul className="list-disc list-inside space-y-2 text-gray-600">
-              <li>Multiple choice questions</li>
-              <li>Progress tracking</li>
-              <li>Performance analytics</li>
-              <li>Study materials</li>
-            </ul>
+          <div className="space-y-6">
+            {/* Subject Selection */}
+            <div>
+              <h2 className="text-xl font-semibold text-gray-800 mb-4">
+                Konu Seçin
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                {SUBJECTS.map((subject) => (
+                  <Button
+                    key={subject.id}
+                    variant={selectedSubject === subject.id ? "default" : "outline"}
+                    onClick={() => setSelectedSubject(subject.id)}
+                    className="h-16 text-sm"
+                  >
+                    <div className="text-center">
+                      <div className="font-semibold">{subject.name}</div>
+                      <div className="text-xs text-gray-500">{subject.code}</div>
+                    </div>
+                  </Button>
+                ))}
+              </div>
+            </div>
+
+            {/* Quiz Mode Selection */}
+            <div>
+              <h2 className="text-xl font-semibold text-gray-800 mb-4">
+                Quiz Modu Seçin
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {QUIZ_MODES.map((mode) => (
+                  <Card
+                    key={mode.id}
+                    className={`cursor-pointer transition-all ${
+                      selectedMode === mode.id ? 'ring-2 ring-primary-500' : ''
+                    }`}
+                    onClick={() => setSelectedMode(mode.id)}
+                  >
+                    <CardHeader>
+                      <CardTitle className="text-lg">{mode.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600">{mode.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Start Quiz Button */}
+            <div className="pt-6">
+              <Button
+                onClick={handleStartQuiz}
+                disabled={!selectedSubject || !selectedMode}
+                size="lg"
+                className="w-full"
+              >
+                Quiz Başlat
+              </Button>
+            </div>
           </div>
           
           <div className="mt-8 pt-6 border-t border-gray-200">
@@ -59,7 +117,7 @@ export default function QuizPage() {
               onClick={() => router.push('/')}
               variant="outline"
             >
-              Back to Home
+              Ana Sayfaya Dön
             </Button>
           </div>
         </div>

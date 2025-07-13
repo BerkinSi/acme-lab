@@ -23,7 +23,7 @@ export default function Navbar() {
           
           <div className="flex items-center space-x-4">
             <Link href="/" className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">
-              Home
+              Ana Sayfa
             </Link>
             
             {user ? (
@@ -40,18 +40,18 @@ export default function Navbar() {
                     variant="outline"
                     size="sm"
                   >
-                    Logout
+                    Çıkış Yap
                   </Button>
                 </div>
               </>
             ) : (
               <>
                 <Link href="/signin" className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">
-                  Sign In
+                  Giriş Yap
                 </Link>
                 <Link href="/signup">
                   <Button size="sm">
-                    Sign Up
+                    Kayıt Ol
                   </Button>
                 </Link>
               </>

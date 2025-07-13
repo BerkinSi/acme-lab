@@ -7,22 +7,22 @@ export default function HomePage() {
       <div className="container mx-auto px-4 py-16">
         <div className="text-center">
           <h1 className="text-5xl font-bold text-primary-900 mb-6">
-            TUS Quiz Platform
+            TUS Quiz Platformu
           </h1>
           <p className="text-xl text-primary-700 mb-8 max-w-2xl mx-auto">
-            Prepare for the Turkish Medical Specialization Exam (TUS) with our comprehensive 
-            quiz platform. Test your knowledge, track your progress, and improve your scores.
+            Tıpta Uzmanlık Sınavı (TUS) için kapsamlı hazırlık platformu. 
+            Bilginizi test edin, ilerlemenizi takip edin ve puanınızı yükseltin.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/quiz">
               <Button size="lg" className="text-lg px-8 py-4">
-                Start Quiz
+                Quiz Başlat
               </Button>
             </Link>
             <Link href="/signin">
               <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-                Sign In
+                Giriş Yap
               </Button>
             </Link>
           </div>
@@ -30,26 +30,26 @@ export default function HomePage() {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-primary-800 mb-3">
-                Comprehensive Questions
+                Kapsamlı Sorular
               </h3>
               <p className="text-primary-600">
-                Access thousands of carefully curated questions covering all TUS subjects.
+                Tüm TUS konularını kapsayan binlerce özenle seçilmiş soruya erişin.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-primary-800 mb-3">
-                Progress Tracking
+                İlerleme Takibi
               </h3>
               <p className="text-primary-600">
-                Monitor your performance and identify areas for improvement.
+                Performansınızı izleyin ve geliştirilmesi gereken alanları belirleyin.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-primary-800 mb-3">
-                Detailed Explanations
+                Detaylı Açıklamalar
               </h3>
               <p className="text-primary-600">
-                Learn from detailed explanations for every question and answer.
+                Her soru ve cevap için detaylı açıklamalardan öğrenin.
               </p>
             </div>
           </div>
