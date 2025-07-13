@@ -35,15 +35,15 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-center text-2xl">Kayıt Ol</CardTitle>
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center p-3 sm:p-4">
+      <Card className="w-full max-w-sm sm:max-w-md">
+        <CardHeader className="pb-4 sm:pb-6">
+          <CardTitle className="text-center text-xl sm:text-2xl">Kayıt Ol</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-4 sm:space-y-6">
           {success ? (
             <div className="text-center">
-              <p className="text-green-600 mb-4">
+              <p className="text-green-600 mb-4 text-sm sm:text-base">
                 Hesabınız başarıyla oluşturuldu! Lütfen e-posta adresinizi kontrol edin.
               </p>
               <p className="text-sm text-gray-600">
@@ -51,9 +51,9 @@ export default function SignUpPage() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   E-posta
                 </label>
                 <Input
@@ -63,11 +63,12 @@ export default function SignUpPage() {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                   required
                   placeholder="E-posta adresinizi girin"
+                  className="min-h-[44px] text-base"
                 />
               </div>
               
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   Şifre
                 </label>
                 <Input
@@ -78,6 +79,7 @@ export default function SignUpPage() {
                   required
                   placeholder="Şifrenizi girin"
                   minLength={6}
+                  className="min-h-[44px] text-base"
                 />
               </div>
               
@@ -87,7 +89,7 @@ export default function SignUpPage() {
               
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full min-h-[44px] text-base"
                 disabled={loading}
               >
                 {loading ? 'Hesap oluşturuluyor...' : 'Kayıt Ol'}
@@ -95,10 +97,10 @@ export default function SignUpPage() {
             </form>
           )}
           
-          <div className="mt-4 text-center">
+          <div className="mt-4 sm:mt-6 text-center">
             <p className="text-sm text-gray-600">
               Zaten hesabınız var mı?{' '}
-              <Link href="/signin" className="text-primary-600 hover:text-primary-700">
+              <Link href="/signin" className="text-primary-600 hover:text-primary-700 font-medium">
                 Giriş yapın
               </Link>
             </p>

@@ -31,15 +31,15 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-center text-2xl">Giriş Yap</CardTitle>
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center p-3 sm:p-4">
+      <Card className="w-full max-w-sm sm:max-w-md">
+        <CardHeader className="pb-4 sm:pb-6">
+          <CardTitle className="text-center text-xl sm:text-2xl">Giriş Yap</CardTitle>
         </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
+        <CardContent className="space-y-4 sm:space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                 E-posta
               </label>
               <Input
@@ -49,11 +49,12 @@ export default function SignInPage() {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                 required
                 placeholder="E-posta adresinizi girin"
+                className="min-h-[44px] text-base"
               />
             </div>
             
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                 Şifre
               </label>
               <Input
@@ -63,6 +64,7 @@ export default function SignInPage() {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                 required
                 placeholder="Şifrenizi girin"
+                className="min-h-[44px] text-base"
               />
             </div>
             
@@ -72,17 +74,17 @@ export default function SignInPage() {
             
             <Button
               type="submit"
-              className="w-full"
+              className="w-full min-h-[44px] text-base"
               disabled={loading}
             >
               {loading ? 'Giriş yapılıyor...' : 'Giriş Yap'}
             </Button>
           </form>
           
-          <div className="mt-4 text-center">
+          <div className="mt-4 sm:mt-6 text-center">
             <p className="text-sm text-gray-600">
               Hesabınız yok mu?{' '}
-              <Link href="/signup" className="text-primary-600 hover:text-primary-700">
+              <Link href="/signup" className="text-primary-600 hover:text-primary-700 font-medium">
                 Kayıt olun
               </Link>
             </p>
