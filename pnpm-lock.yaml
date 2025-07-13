@@ -151,9 +151,6 @@ importers:
       eslint:
         specifier: ^9.30.0
         version: 9.31.0(jiti@1.21.7)
-      eslint-plugin-react:
-        specifier: ^7.37.5
-        version: 7.37.5(eslint@9.31.0(jiti@1.21.7))
       typescript:
         specifier: ^5.0.0
         version: 5.8.3
