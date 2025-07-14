@@ -14,21 +14,30 @@ export type Database = {
       profiles: {
         Row: {
           id: string;
-          email: string;
+          full_name: string | null;
+          avatar_url: string | null;
           created_at: string;
-          updated_at: string;
+          is_premium: boolean;
+          gumroad_sale_id: string | null;
+          premium_until: string | null;
         };
         Insert: {
-          id?: string;
-          email: string;
+          id: string;
+          full_name?: string | null;
+          avatar_url?: string | null;
           created_at?: string;
-          updated_at?: string;
+          is_premium?: boolean;
+          gumroad_sale_id?: string | null;
+          premium_until?: string | null;
         };
         Update: {
           id?: string;
-          email?: string;
+          full_name?: string | null;
+          avatar_url?: string | null;
           created_at?: string;
-          updated_at?: string;
+          is_premium?: boolean;
+          gumroad_sale_id?: string | null;
+          premium_until?: string | null;
         };
       };
     };
