@@ -1,3 +1,4 @@
+'use client';
 import { Button, Card, CardHeader, CardTitle, CardContent } from '@acme/ui';
 import Link from 'next/link';
 import Image from 'next/image';
