@@ -13,6 +13,7 @@
     "@acme/quiz-core": "workspace:*",
     "@acme/supabase-client": "workspace:*",
     "@acme/ui": "workspace:*",
+    "@supabase/supabase-js": "^2.50.5",
     "next": "14.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
