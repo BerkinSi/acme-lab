@@ -73,6 +73,7 @@ export async function POST(req: NextRequest) {
     return new Response('OK', { status: 200 });
   } catch (err) {
     console.error('Webhook error:', err);
+    console.error('patladiii:', err);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 } 
