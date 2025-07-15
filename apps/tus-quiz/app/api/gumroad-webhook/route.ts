@@ -6,9 +6,9 @@ export const runtime = 'edge';
 const GumroadWebhookSchema = z.object({
   email: z.string().email(),
   sale_id: z.string(),
-  subscription_cancelled: z.enum(['true', 'false']),
+  subscription_cancelled: z.enum(['true', 'false']).optional(),
   ends_at: z.string().optional(),
-  secret: z.string(),
+  secret: z.string().optional(),
 });
 
 export async function POST(req: NextRequest) {
@@ -24,6 +24,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid payload' }, { status: 400 });
     }
     const { email, sale_id, subscription_cancelled, ends_at, secret: secretFromBody } = parsed.data;
+    const subscriptionCancelled = subscription_cancelled ?? "false";
 
     const url = new URL(req.url);
     const secretFromQuery = url.searchParams.get('secret');
@@ -49,7 +50,7 @@ export async function POST(req: NextRequest) {
 
     // Prepare update values
     let update: any = {};
-    if (subscription_cancelled === 'true') {
+    if (subscriptionCancelled === 'true') {
       update = { is_premium: false, premium_until: null };
     } else {
       update = {
