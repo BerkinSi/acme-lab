@@ -16,7 +16,10 @@ export async function POST(req: NextRequest) {
     const bodyText = await req.text();
     const params = new URLSearchParams(bodyText);
     const reqBody = Object.fromEntries(params.entries());
+    // Debug: log the raw request body and parsed result
+    console.log('Gumroad webhook raw body:', reqBody);
     const parsed = GumroadWebhookSchema.safeParse(reqBody);
+    console.log('Gumroad webhook parsed result:', parsed);
     if (!parsed.success) {
       return NextResponse.json({ error: 'Invalid payload' }, { status: 400 });
     }
