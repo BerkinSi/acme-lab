@@ -15,9 +15,13 @@ create table if not exists public.profiles (
 alter table public.profiles enable row level security;
 
 -- Policy: Allow users to SELECT and UPDATE their own profile
+-- Make policies idempotent
+
+drop policy if exists "Users can select their own profile" on public.profiles;
 create policy "Users can select their own profile" on public.profiles
   for select using (auth.uid() = id);
 
+drop policy if exists "Users can update their own profile" on public.profiles;
 create policy "Users can update their own profile" on public.profiles
   for update using (auth.uid() = id);
 
