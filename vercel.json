@@ -1,3 +1,5 @@
 {
+  "buildCommand": "pnpm turbo run build --filter=apps/tus-quiz",
+  "outputDirectory": "apps/tus-quiz/.next",
   "framework": "nextjs"
 } 
