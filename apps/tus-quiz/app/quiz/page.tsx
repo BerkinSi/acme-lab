@@ -44,17 +44,17 @@ export default function QuizPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 p-3 sm:p-4">
+    <div className="min-h-screen bg-background p-3 sm:p-4">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-primary-900 mb-4 sm:mb-6">
+        <div className="bg-background rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary mb-4 sm:mb-6">
             Quiz Oluştur
           </h1>
           
           <div className="space-y-6 sm:space-y-8">
             {/* Subject Selection */}
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">
+              <h2 className="text-xl font-semibold text-foreground mb-3 sm:mb-4">
                 Konu Seçin
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
@@ -63,11 +63,11 @@ export default function QuizPage() {
                     key={subject.id}
                     variant={selectedSubject === subject.id ? "default" : "outline"}
                     onClick={() => setSelectedSubject(subject.id)}
-                    className="h-16 sm:h-20 text-xs sm:text-sm min-h-[44px] p-2"
+                    className="h-16 sm:h-20 text-xs sm:text-sm min-h-[44px] p-2 font-medium"
                   >
                     <div className="text-center">
                       <div className="font-semibold leading-tight">{subject.name}</div>
-                      <div className="text-xs text-gray-500 mt-1">{subject.code}</div>
+                      <div className="text-xs text-muted mt-1">{subject.code}</div>
                     </div>
                   </Button>
                 ))}
@@ -76,23 +76,21 @@ export default function QuizPage() {
 
             {/* Quiz Mode Selection */}
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">
+              <h2 className="text-xl font-semibold text-foreground mb-3 sm:mb-4">
                 Quiz Modu Seçin
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                 {QUIZ_MODES.map((mode) => (
                   <Card
                     key={mode.id}
-                    className={`cursor-pointer transition-all min-h-[44px] ${
-                      selectedMode === mode.id ? 'ring-2 ring-primary-500' : ''
-                    }`}
+                    className={`cursor-pointer transition-all min-h-[44px] ${selectedMode === mode.id ? 'ring-2 ring-primary' : ''}`}
                     onClick={() => setSelectedMode(mode.id)}
                   >
                     <CardHeader className="pb-2 sm:pb-4">
-                      <CardTitle className="text-base sm:text-lg">{mode.name}</CardTitle>
+                      <CardTitle className="text-base sm:text-lg font-semibold text-foreground">{mode.name}</CardTitle>
                     </CardHeader>
                     <CardContent className="pt-0">
-                      <p className="text-sm sm:text-base text-gray-600">{mode.description}</p>
+                      <p className="text-sm text-muted">{mode.description}</p>
                     </CardContent>
                   </Card>
                 ))}
@@ -105,18 +103,18 @@ export default function QuizPage() {
                 onClick={handleStartQuiz}
                 disabled={!selectedSubject || !selectedMode}
                 size="lg"
-                className="w-full min-h-[44px] text-base sm:text-lg"
+                className="w-full min-h-[44px] text-base font-medium"
               >
                 Quiz Başlat
               </Button>
             </div>
           </div>
           
-          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200">
+          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-muted">
             <Button 
-              onClick={() => router.push('/')}
-              variant="outline"
-              className="w-full sm:w-auto min-h-[44px]"
+              onClick={() => router.push('/')} 
+              variant="outline" 
+              className="w-full sm:w-auto min-h-[44px] font-medium"
             >
               Ana Sayfaya Dön
             </Button>

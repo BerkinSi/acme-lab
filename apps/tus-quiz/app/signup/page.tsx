@@ -35,25 +35,25 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center p-3 sm:p-4">
+    <div className="min-h-screen bg-background flex items-center justify-center p-3 sm:p-4">
       <Card className="w-full max-w-sm sm:max-w-md">
         <CardHeader className="pb-4 sm:pb-6">
-          <CardTitle className="text-center text-xl sm:text-2xl">Kayıt Ol</CardTitle>
+          <CardTitle className="text-center text-2xl font-bold text-primary">Kayıt Ol</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4 sm:space-y-6">
           {success ? (
             <div className="text-center">
-              <p className="text-green-600 mb-4 text-sm sm:text-base">
+              <p className="text-green-600 mb-4 text-sm sm:text-base font-medium">
                 Hesabınız başarıyla oluşturuldu! Lütfen e-posta adresinizi kontrol edin.
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted">
                 Giriş sayfasına yönlendiriliyorsunuz...
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1 sm:mb-2">
                   E-posta
                 </label>
                 <Input
@@ -66,9 +66,8 @@ export default function SignUpPage() {
                   className="min-h-[44px] text-base"
                 />
               </div>
-              
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
+                <label htmlFor="password" className="block text-sm font-medium text-foreground mb-1 sm:mb-2">
                   Şifre
                 </label>
                 <Input
@@ -82,25 +81,22 @@ export default function SignUpPage() {
                   className="min-h-[44px] text-base"
                 />
               </div>
-              
               {error && (
-                <div className="text-red-600 text-sm">{error}</div>
+                <div className="text-red-600 text-sm font-medium">{error}</div>
               )}
-              
               <Button
                 type="submit"
-                className="w-full min-h-[44px] text-base"
+                className="w-full min-h-[44px] text-base font-medium"
                 disabled={loading}
               >
                 {loading ? 'Hesap oluşturuluyor...' : 'Kayıt Ol'}
               </Button>
             </form>
           )}
-          
           <div className="mt-4 sm:mt-6 text-center">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted">
               Zaten hesabınız var mı?{' '}
-              <Link href="/signin" className="text-primary-600 hover:text-primary-700 font-medium">
+              <Link href="/signin" className="text-primary hover:text-accent font-medium">
                 Giriş yapın
               </Link>
             </p>

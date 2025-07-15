@@ -4,9 +4,9 @@
 
 @layer base {
   * {
-    @apply border-gray-200;
+    @apply border-muted;
   }
   body {
-    @apply bg-white text-gray-900;
+    @apply bg-background text-foreground font-sans dark:bg-background dark:text-foreground;
   }
 } 

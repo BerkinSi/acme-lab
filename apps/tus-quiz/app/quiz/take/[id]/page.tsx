@@ -124,8 +124,8 @@ export default function QuizTakePage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500 mx-auto mb-4"></div>
-          <p className="text-gray-600">Yükleniyor...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-muted">Yükleniyor...</p>
         </div>
       </div>
     );
@@ -146,26 +146,25 @@ export default function QuizTakePage() {
     const score = (correctAnswers / quiz.questions.length) * 100;
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 p-3 sm:p-4">
+      <div className="min-h-screen bg-background p-3 sm:p-4">
         <div className="max-w-2xl mx-auto">
           <Card className="p-6 sm:p-8">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl sm:text-3xl">Quiz Tamamlandı!</CardTitle>
+              <CardTitle className="text-2xl sm:text-3xl font-bold text-primary">Quiz Tamamlandı!</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="text-center">
-                <div className="text-4xl sm:text-6xl font-bold text-primary-600 mb-2">
+                <div className="text-4xl sm:text-6xl font-bold text-primary mb-2">
                   {score.toFixed(0)}%
                 </div>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg text-muted">
                   {correctAnswers} / {quiz.questions.length} doğru
                 </p>
               </div>
-              
               <div className="space-y-4">
                 {quiz.questions.map((question, index) => (
-                  <div key={question.id} className="border rounded-lg p-4">
-                    <p className="font-medium mb-2">
+                  <div key={question.id} className="border border-muted rounded-lg p-4">
+                    <p className="font-medium mb-2 text-foreground">
                       Soru {index + 1}: {question.question_text}
                     </p>
                     <div className="space-y-2">
@@ -179,15 +178,15 @@ export default function QuizTakePage() {
                                 : 'bg-red-100 border-red-300'
                               : optionIndex === question.correct_answer
                               ? 'bg-green-100 border-green-300'
-                              : 'bg-gray-50'
+                              : 'bg-background'
                           } border`}
                         >
                           {option}
                           {optionIndex === question.correct_answer && (
-                            <span className="ml-2 text-green-600 font-medium">✓ Doğru</span>
+                            <span className="ml-2 text-green-600 font-medium"> Doğru</span>
                           )}
                           {answers[index] === optionIndex && optionIndex !== question.correct_answer && (
-                            <span className="ml-2 text-red-600 font-medium">✗ Yanlış</span>
+                            <span className="ml-2 text-red-600 font-medium"> Yanlış</span>
                           )}
                         </div>
                       ))}
@@ -195,9 +194,8 @@ export default function QuizTakePage() {
                   </div>
                 ))}
               </div>
-              
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button onClick={handleFinishQuiz} className="flex-1">
+                <Button onClick={handleFinishQuiz} className="flex-1 font-medium">
                   Quiz Seçimine Dön
                 </Button>
               </div>
@@ -209,25 +207,24 @@ export default function QuizTakePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 p-3 sm:p-4">
+    <div className="min-h-screen bg-background p-3 sm:p-4">
       <div className="max-w-4xl mx-auto">
         {/* Progress Bar */}
         <div className="mb-6">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-muted">
               Soru {currentQuestionIndex + 1} / {quiz.questions.length}
             </span>
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-muted">
               {Math.round(progress)}%
             </span>
           </div>
           <Progress value={progress} className="h-2" />
         </div>
-
         {/* Question Card */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="text-lg sm:text-xl">
+            <CardTitle className="text-xl font-semibold text-foreground">
               {currentQuestion.question_text}
             </CardTitle>
           </CardHeader>
@@ -238,7 +235,7 @@ export default function QuizTakePage() {
                   key={index}
                   variant={selectedAnswer === index ? "default" : "outline"}
                   onClick={() => handleAnswerSelect(index)}
-                  className="w-full justify-start h-auto p-4 text-left min-h-[44px]"
+                  className="w-full justify-start h-auto p-4 text-left min-h-[44px] font-medium"
                 >
                   <span className="font-medium mr-3">{String.fromCharCode(65 + index)}.</span>
                   {option}

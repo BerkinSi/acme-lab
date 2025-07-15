@@ -7,8 +7,12 @@ import Navbar from './components/navbar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'TUS Quiz - Turkish Medical Exam Preparation',
-  description: 'Prepare for the TUS exam with our comprehensive quiz platform',
+  title: 'TusAI - Turkish Medical Exam Preparation',
+  description: 'Prepare for the TUS exam with TusAI, the next-generation quiz platform.',
+  icons: {
+    icon: '/favicon.ico',
+  },
+  themeColor: '#5B21B6',
 };
 
 export default function RootLayout({

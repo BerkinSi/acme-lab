@@ -7,21 +7,28 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#2563eb',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
-        },
+        primary: '#5B21B6',
+        accent: '#D946EF',
+        background: '#F9FAFB',
+        foreground: '#111827',
+        muted: '#6B7280',
+        card: '#FFFFFF',
+        'card-foreground': '#111827',
+        'muted-foreground': '#6B7280',
+        input: '#E5E7EB', // Tailwind gray-200
+        ring: '#5B21B6',
+        // Add more as needed for border, destructive, etc.
+      },
+      fontFamily: {
+        sans: [
+          'Inter var',
+          'Inter',
+          'system-ui',
+          'sans-serif',
+        ],
       },
     },
   },
+  darkMode: 'class',
   plugins: [],
 }; 
