@@ -15,7 +15,8 @@
     "build": "tsc -p tsconfig.json",
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "dev": "echo 'No dev script for this package'"
   },
   "devDependencies": {
     "@types/node": "^22.15.3",

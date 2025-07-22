@@ -2,6 +2,9 @@
   "name": "@acme/config",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "dev": "echo 'No dev script for this package'"
+  },
   "main": "./index.js",
   "types": "./index.d.ts",
   "files": [
